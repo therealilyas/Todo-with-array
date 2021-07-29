@@ -13,14 +13,10 @@ function init() {
 }
 
 
-// -= Fucking steps =-
-// 1) add element to fucking array
-
-// * 1  Keys event
+// 1) add element to array
+// 1) * 1  Keys event
 addInput.addEventListener('keyup', () => {
-
     addBtn.classList.add("active");
-
 });
 addBtn.addEventListener('click', () => {
     addTodo();
@@ -32,7 +28,7 @@ addEventListener('keyup', (e) => {
     }
 });
 
-// * 2 Add Function
+// 1) * 2 Add Function
 function addTodo() {
     if (addInput.value == "") {
         addBtn.classList.remove('active');
@@ -45,46 +41,35 @@ function addTodo() {
 
 
 
-// 2) showToDo in display
-
+// 2) show items in display
 function showToDo() {
-
     if (addInput.value == '') {
         addBtn.classList.remove("active");
     }
 
     let todoLI = '';
-
     todoArray.forEach((element, i) => {
-
         todoLI += `
         <li>
         <span>${element}</span><button onclick="removeTodo(${i})">X</button>
         </li>
         `
-
     });
 
     todoUL.innerHTML = todoLI;
 
     addInput.value = '';
-
     addBtn.classList.remove("active");
-
     countTodo.innerText = todoArray.length;
-
     clearAllTodo();
 }
 
 
-// 3) delete item in array
-
+// 3) delete items
 function removeTodo(i) {
-
     console.log('Fucking array before deletion', todoArray);
 
     delete todoArray[i];
-
     todoArray = todoArray.filter((todoArray) => {
         if (todoArray !== undefined) {
             return todoArray;
@@ -96,10 +81,8 @@ function removeTodo(i) {
 }
 
 
-// 4) clear all todo 
-
+// 4) clearing 
 function clearAllTodo() {
-
     if (todoArray.length > 0) {
         clearAllBtn.classList.add('active');
     } else {
@@ -107,13 +90,8 @@ function clearAllTodo() {
     }
 
     clearAllBtn.addEventListener('click', () => {
-
         todoArray = [];
         todoUL.innerHTML = '';
         countTodo.innerText = 0;
-
     });
-
-}
-
-// Finish !!!
+} // Finish !!!
